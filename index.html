@@ -338,13 +338,16 @@
     .about-photo {
       width: 200px;
       height: 200px;
-      background: rgba(255,255,255,0.15);
       border-radius: 50%;
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .about-text {
@@ -695,7 +698,9 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about-content">
-        <div class="about-photo">👤</div>
+        <div class="about-photo">
+          <img src="images/sean-flanagan-headshot.jpg" alt="Sean Flanagan - Psi Phi Consulting">
+        </div>
         <div class="about-text">
           <h2>Hi, I'm Sean.</h2>
           <p>11+ years solving operational problems in the chemical industry. I've eliminated 100+ hours/week of manual work through smart systems and process optimization.</p>
@@ -730,8 +735,8 @@
     <div class="container">
       <h2>Ready to find your optimal balance?</h2>
       <p>Let's talk about what's holding your business back.</p>
-      <a href="mailto:sean@psiphi.co" class="btn btn-primary">Schedule a Discovery Call</a>
-      <p class="cta-alt">or email <a href="mailto:sean@psiphi.co">sean@psiphi.co</a></p>
+      <a href="/cdn-cgi/l/email-protection#85f6e0e4ebc5f5f6ecf5edecabe6ea" class="btn btn-primary">Schedule a Discovery Call</a>
+      <p class="cta-alt">or email <a href="/cdn-cgi/l/email-protection#ef9c8a8e81af9f9c869f8786c18c80"><span class="__cf_email__" data-cfemail="ff8c9a9e91bf8f8c968f9796d19c90">[email&#160;protected]</span></a></p>
     </div>
   </section>
 
@@ -739,9 +744,4 @@
   <footer>
     <p>&copy; 2025 Psi Phi LLC &middot; Summerville, SC</p>
     <p>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:sean@psiphi.co">Email</a>
-    </p>
-  </footer>
-
-  <!-- Mobile Nav Toggle Script -->
+      <a href="https://linkedin.com/in/
