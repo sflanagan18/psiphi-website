@@ -474,7 +474,7 @@
         background: var(--white);
         flex-direction: column;
         padding: 24px;
-        gap: 16px;
+        gap: 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
@@ -484,6 +484,42 @@
 
       .nav-toggle {
         display: block;
+      }
+
+      /* Mobile dropdown styles */
+      .dropdown {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+      }
+
+      .dropdown:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-toggle {
+        width: 100%;
+        padding: 15px 0;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        margin-top: 0;
+        display: none;
+        padding: 0 0 15px 20px;
+        min-width: auto;
+      }
+
+      .dropdown.active .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        padding: 10px 0;
       }
 
       .hero {
@@ -855,6 +891,40 @@
       <a href="https://www.linkedin.com/company/psiphi/">LinkedIn</a>
     </p>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggles
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        // Only handle click for mobile
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdown = toggle.closest('.dropdown');
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // Close menu when clicking a link
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 
