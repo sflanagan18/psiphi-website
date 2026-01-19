@@ -88,6 +88,18 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      color: var(--gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--purple);
     }
 
     .dropdown-toggle::after {
@@ -96,6 +108,11 @@
       border-right: 4px solid transparent;
       border-top: 5px solid currentColor;
       margin-left: 2px;
+      transition: transform 0.2s;
+    }
+
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
     }
 
     .dropdown-menu {
@@ -142,7 +159,7 @@
     .page-header {
       padding: 160px 60px 80px;
       text-align: center;
-      background: linear-gradient(135deg, #f8f6fb 0%, #f0f7f3 100%);
+      background: linear-gradient(135deg, #f8f6fc 0%, #f0fdf4 100%);
     }
 
     .page-header h1 {
@@ -493,20 +510,22 @@
     </a>
     <div class="nav-links">
       <div class="dropdown">
-        <a href="#" class="dropdown-toggle">Company</a>
+        <a href="index.html" class="dropdown-toggle">Company</a>
         <div class="dropdown-menu">
+          <a href="index.html#sound-familiar">Sound Familiar?</a>
+          <a href="index.html#how-i-help">How I Can Help</a>
           <a href="index.html#about">About</a>
           <a href="index.html#contact">Contact</a>
         </div>
       </div>
       <div class="dropdown">
-        <a href="#" class="dropdown-toggle">Services</a>
+        <a href="services.html" class="dropdown-toggle">Services</a>
         <div class="dropdown-menu align-right">
-          <a href="#digital-transformation">Digital Transformation & Systems</a>
-          <a href="#revenue-intelligence">Revenue Intelligence & Sales</a>
-          <a href="#supply-chain">Supply Chain & Cost</a>
-          <a href="#process-efficiency">Process Efficiency & Yield</a>
-          <a href="#digital-marketing">Digital Marketing & Brand</a>
+          <a href="#digital-transformation">Stack InPsight</a>
+          <a href="#revenue-intelligence">PersoniPhication</a>
+          <a href="#supply-chain">RePhinance</a>
+          <a href="#process-efficiency">EPhiciency</a>
+          <a href="#digital-marketing">Psignature</a>
         </div>
       </div>
     </div>

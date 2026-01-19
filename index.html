@@ -248,6 +248,9 @@
       border-radius: 12px;
       box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
       transition: all 0.2s;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
     .service-card:hover {
@@ -595,6 +598,7 @@
       background: none;
       border: none;
       font-family: inherit;
+      font-weight: 500;
     }
 
     .dropdown-toggle:hover {
@@ -692,20 +696,22 @@
     </a>
     <div class="nav-links">
       <div class="dropdown">
-        <button class="dropdown-toggle">Company</button>
+        <a href="index.html" class="dropdown-toggle">Company</a>
         <div class="dropdown-menu">
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#sound-familiar">Sound Familiar?</a>
+          <a href="index.html#how-i-help">How I Can Help</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
         </div>
       </div>
       <div class="dropdown">
-        <button class="dropdown-toggle">Services</button>
+        <a href="services.html" class="dropdown-toggle">Services</a>
         <div class="dropdown-menu">
-          <a href="services.html#digital-transformation">Digital Transformation</a>
-          <a href="services.html#revenue-intelligence">Revenue Intelligence</a>
-          <a href="services.html#supply-chain">Supply Chain</a>
-          <a href="services.html#process-efficiency">Process Efficiency</a>
-          <a href="services.html#digital-marketing">Digital Marketing</a>
+          <a href="services.html#digital-transformation">Stack InPsight</a>
+          <a href="services.html#revenue-intelligence">PersoniPhication</a>
+          <a href="services.html#supply-chain">RePhinance</a>
+          <a href="services.html#process-efficiency">EPhiciency</a>
+          <a href="services.html#digital-marketing">Psignature</a>
         </div>
       </div>
     </div>
@@ -752,7 +758,7 @@
   </section>
 
   <!-- Problem -->
-  <section class="problem">
+  <section class="problem" id="sound-familiar">
     <div class="container">
       <h2 class="section-title">Sound familiar?</h2>
       <div class="problem-grid">
@@ -779,35 +785,35 @@
   </section>
 
   <!-- Services -->
-  <section class="services" id="services">
+  <section class="services" id="how-i-help">
     <div class="container">
       <h2 class="section-title">How I Can Help</h2>
       <div class="services-grid">
-        <div class="service-card">
+        <a href="services.html#digital-transformation" class="service-card">
           <div class="service-icon">⚡</div>
           <h3>Digital Transformation & Systems Architecture</h3>
           <p>Connect your tools, automate your workflows, and build a tech stack that actually works together.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html#revenue-intelligence" class="service-card">
           <div class="service-icon">📊</div>
           <h3>Revenue Intelligence & Sales Enablement</h3>
           <p>Turn your CRM into a growth engine with better data, clearer pipelines, and actionable insights.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html#supply-chain" class="service-card">
           <div class="service-icon">🔗</div>
           <h3>Supply Chain & Cost Optimization</h3>
           <p>Find margin hidden in your supply chain through smarter sourcing, logistics, and vendor management.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html#process-efficiency" class="service-card">
           <div class="service-icon">⚙️</div>
           <h3>Process Efficiency & Yield Optimization</h3>
           <p>Eliminate bottlenecks, reduce waste, and get more output from your existing resources.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html#digital-marketing" class="service-card">
           <div class="service-icon">🎯</div>
           <h3>Digital Marketing & Brand Visibility</h3>
           <p>Get found by the right customers with SEO, content strategy, and digital presence that converts.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -880,7 +886,7 @@
       <p>Let's talk about what's holding your business back.</p>
       <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-primary">Schedule a Discovery
         Call</a>
-      <p class="cta-alt">or email <a href="mailto:sean@psiphi.co">sean@psiphi.co</a></p>
+      <p class="cta-alt">or email <a href="/cdn-cgi/l/email-protection#3e4d5b5f507e4e4d574e5657105d51"><span class="__cf_email__" data-cfemail="f784929699b787849e879f9ed99498">[email&#160;protected]</span></a></p>
     </div>
   </section>
 
@@ -892,7 +898,7 @@
     </p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Mobile menu toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelector('.nav-links');
@@ -916,16 +922,4 @@
     });
 
     // Close menu when clicking a link
-    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-        }
-      });
-    });
-  </script>
-
-</body>
-
-</html>
+    const dropdownLinks = document.querySelectorAll('.dropdown-men
