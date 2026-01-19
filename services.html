@@ -7,18 +7,9 @@
   <title>Services | Psi Phi - Operational Consulting</title>
   <meta name="description"
     content="Operational consulting services: Digital Transformation, Revenue Intelligence, Supply Chain Optimization, Process Efficiency, and Digital Marketing.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Services | Psi Phi - Operational Consulting">
-  <meta property="og:description"
-    content="Practical solutions for businesses struggling with disconnected systems, manual processes, and operational inefficiencies.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://psiphi.co/services">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -28,8 +19,8 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #2D2D2D;
       line-height: 1.6;
-      color: #333;
     }
 
     /* Navigation */
@@ -37,44 +28,54 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 40px;
+      padding: 20px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       z-index: 1000;
+      border-bottom: 1px solid #eee;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: #7B5AA6;
-      font-size: 1.3rem;
       font-weight: 600;
+      font-size: 1.2rem;
+      color: #2D2D2D;
+      text-decoration: none;
     }
 
     .logo svg {
-      flex-shrink: 0;
+      height: 34px;
+      width: auto;
+    }
+
+    .logo span {
+      font-weight: 600;
+      color: #7B5AA6;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 10px;
       align-items: center;
     }
 
-    .nav-links > a {
+    .nav-links a {
+      color: #666;
       text-decoration: none;
-      color: #555;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.2s;
     }
 
-    .nav-links > a:hover {
+    .nav-links a:hover {
       color: #7B5AA6;
+      background: #f5f5f5;
     }
 
     /* Dropdown styles */
@@ -83,50 +84,39 @@
     }
 
     .dropdown-toggle {
-      text-decoration: none;
-      color: #555;
-      font-size: 0.95rem;
-      transition: color 0.2s;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-
-    .dropdown-toggle:hover {
-      color: #7B5AA6;
+      gap: 4px;
     }
 
     .dropdown-toggle::after {
-      content: "";
+      content: '';
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
       border-top: 5px solid currentColor;
-      transition: transform 0.2s;
-    }
-
-    .dropdown:hover .dropdown-toggle::after {
-      transform: rotate(180deg);
+      margin-left: 2px;
     }
 
     .dropdown-menu {
       position: absolute;
       top: 100%;
-      right: 0;
+      left: 0;
       background: white;
-      min-width: 220px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       padding: 8px 0;
+      min-width: 240px;
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
       transition: all 0.2s;
-      margin-top: 10px;
-      white-space: nowrap;
+      z-index: 100;
+    }
+
+    .dropdown-menu.align-right {
+      left: auto;
+      right: 0;
     }
 
     .dropdown:hover .dropdown-menu {
@@ -138,202 +128,303 @@
     .dropdown-menu a {
       display: block;
       padding: 10px 20px;
-      color: #555;
-      text-decoration: none;
+      color: #2D2D2D;
       font-size: 0.9rem;
-      transition: all 0.15s;
+      border-radius: 0;
     }
 
     .dropdown-menu a:hover {
-      background: #f5f0fa;
+      background: #f5f5f5;
       color: #7B5AA6;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: #2D8659;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #246d48;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 2px solid #7B5AA6;
-      color: #7B5AA6;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: #7B5AA6;
-      color: white;
     }
 
     /* Page Header */
     .page-header {
-      padding: 160px 40px 80px;
-      background: linear-gradient(135deg, #7B5AA6 0%, #5A4080 100%);
-      color: white;
+      padding: 160px 60px 80px;
       text-align: center;
+      background: linear-gradient(135deg, #f8f6fb 0%, #f0f7f3 100%);
     }
 
     .page-header h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
+      font-size: 2.75rem;
+      font-weight: 700;
       margin-bottom: 20px;
+      color: #2D2D2D;
     }
 
-    .page-header p {
+    .page-header .subtitle {
       font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .disclaimer {
+      background: white;
+      border-left: 4px solid #7B5AA6;
+      padding: 20px 30px;
+      max-width: 800px;
       margin: 0 auto;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #555;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     /* Service Sections */
     .service-section {
-      padding: 80px 40px;
-    }
-
-    .service-section .service-content {
-      max-width: 900px;
+      padding: 80px 60px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    /* Alternating backgrounds */
-    .service-section:nth-child(odd) {
-      background: white;
+    .service-section.alt-bg {
+      background: #f9f9f9;
+      max-width: 100%;
     }
 
-    .service-section:nth-child(even) {
-      background: #fafafa;
+    .service-section.alt-bg .service-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #7B5AA6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
     .service-section h2 {
-      font-size: 1.8rem;
-      color: #7B5AA6;
-      margin-bottom: 15px;
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #2D2D2D;
     }
 
-    .service-tagline {
+    .signature-name {
       font-size: 1.1rem;
       color: #2D8659;
-      font-style: italic;
-      margin-bottom: 25px;
+      font-weight: 600;
+      margin-bottom: 30px;
     }
 
     .service-section h3 {
       font-size: 1.1rem;
-      color: #333;
-      margin-top: 30px;
-      margin-bottom: 12px;
       font-weight: 600;
+      margin: 30px 0 12px;
+      color: #2D2D2D;
     }
 
     .service-section p {
       color: #555;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1rem;
       margin-bottom: 15px;
     }
 
     .service-section ul {
       list-style: none;
-      margin: 15px 0;
+      padding: 0;
+      margin: 0 0 20px 0;
     }
 
     .service-section li {
       padding: 8px 0 8px 28px;
       position: relative;
       color: #555;
-      font-size: 1rem;
     }
 
     .service-section li::before {
-      content: "✓";
+      content: "→";
       position: absolute;
       left: 0;
-      color: #2D8659;
+      color: #7B5AA6;
       font-weight: 600;
     }
 
-    .service-cta {
-      margin-top: 25px;
+    /* Engagement Structure */
+    .engagement-structure {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    /* Divider */
-    .section-divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #7B5AA6, #2D8659);
+    .alt-bg .engagement-structure {
+      background: #fff;
+    }
+
+    .engagement-structure h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #7B5AA6;
+      margin-bottom: 20px;
+    }
+
+    .phase {
       margin-bottom: 25px;
     }
 
-    /* Final CTA */
-    .cta {
-      padding: 100px 40px;
-      background: #fafafa;
-      text-align: center;
+    .phase:last-child {
+      margin-bottom: 0;
     }
 
-    .cta-divider {
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, #7B5AA6, #2D8659);
-      margin: 0 auto 40px;
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
-    .cta h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 15px;
-      font-weight: 400;
+    .phase-number {
+      background: #7B5AA6;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
 
-    .cta p {
-      color: #666;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+    .phase-title {
+      font-weight: 600;
+      color: #2D2D2D;
     }
 
-    .cta-alt {
-      margin-top: 20px;
+    .phase-desc {
+      margin-left: 40px;
       color: #666;
       font-size: 0.95rem;
     }
 
-    .cta-alt a {
+    /* Implementation Paths */
+    .paths-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .path-card {
+      background: #f8f6fb;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .path-card.streamlined {
+      background: #f5f5f5;
+    }
+
+    .path-card.power {
+      background: #f0f7f3;
+    }
+
+    .path-card.premium {
+      background: #f8f6fb;
+    }
+
+    .path-name {
+      font-weight: 600;
+      color: #2D2D2D;
+      margin-bottom: 4px;
+    }
+
+    .path-subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .path-desc {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      padding: 80px 60px;
+      background: linear-gradient(135deg, #7B5AA6 0%, #5a3d7a 100%);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: white;
       color: #7B5AA6;
+    }
+
+    .btn-primary:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .cta-alt {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: #f5f5f5;
+      padding: 60px 40px 80px;
+    }
+
+    .form-container {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact-form iframe {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     }
 
     /* Footer */
     footer {
-      padding: 40px;
-      background: #333;
-      color: #aaa;
       text-align: center;
+      padding: 40px;
+      background: #2D2D2D;
+      color: #aaa;
       font-size: 0.9rem;
     }
 
     footer a {
       color: #aaa;
       margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: white;
     }
 
     /* Mobile */
@@ -344,74 +435,6 @@
 
       .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        gap: 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .dropdown {
-        width: 100%;
-        border-bottom: 1px solid #eee;
-      }
-
-      .dropdown:last-child {
-        border-bottom: none;
-      }
-
-      .dropdown-toggle {
-        width: 100%;
-        padding: 15px 0;
-        justify-content: space-between;
-      }
-
-      .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        margin-top: 0;
-        display: none;
-        padding: 0 0 10px 20px;
-      }
-
-      .dropdown.active .dropdown-menu {
-        display: block;
-      }
-
-      .dropdown-menu a {
-        padding: 10px 0;
-      }
-
-      .mobile-menu-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        width: 30px;
-        height: 30px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-      }
-
-      .mobile-menu-btn span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: #555;
-        transition: all 0.3s;
       }
 
       .page-header {
@@ -422,6 +445,11 @@
         font-size: 2rem;
       }
 
+      .disclaimer {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+      }
+
       .service-section {
         padding: 60px 20px;
       }
@@ -429,11 +457,17 @@
       .service-section h2 {
         font-size: 1.5rem;
       }
-    }
 
-    @media (min-width: 769px) {
-      .mobile-menu-btn {
-        display: none;
+      .paths-container {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 60px 20px;
+      }
+
+      .cta h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -453,205 +487,383 @@
         <path d="M 58 220 Q 70 230, 100 230 Q 130 230, 142 220 L 106 220 L 106 228 L 94 228 L 94 220 Z" fill="#7B5AA6" />
         <path d="M 65 222 Q 76 228, 100 228 Q 124 228, 135 222 L 104 222 L 104 226 L 96 226 L 96 222 Z" fill="#2D8659" />
         <path d="m 97.7,220.6 c -4.7,0 -53.7,-12.6 -77,-46 C 4.3,149.4 2,130.6 2,120.1 2,105.5 4.3,90.8 13.7,78.3 c 4.7,-6.3 14,-8.4 18.7,-4.2 4.7,4.2 2.3,12.6 -2.3,18.8 -9.3,14.7 -14,25.1 -14,35.6 0,16.7 9.3,37.7 28,56.5 18.7,18.8 42,31.4 51.3,35.6" fill="#7B5AA6" />
-        <path d="m 102.3,220.6 c 4.7,0 53.7,-12.6 77,-46 C 195.7,149.4 198,130.6 198,120.1 c 0,-14.7 -2.3,-29.3 -11.7,-41.9 -4.7,-6.3 -14,-8.4 -18.7,-4.2 -4.7,4.2 -2.3,12.6 2.3,18.8 9.3,14.7 14,25.1 14,35.6 0,14.7 -9.3,37.7 -28,56.5 -18.7,18.8 -42,31.4 -51.3,35.6" fill="#7B5AA6" />
+        <path d="m 102.3,220.6 c 4.7,0 53.7,-12.6 77,-46 16.4,-25.2 18.7,-44 18.7,-54.5 0,-14.6 -2.3,-29.3 -11.7,-41.8 -4.7,-6.3 -14,-8.4 -18.7,-4.2 -4.7,4.2 -2.3,12.6 2.3,18.8 9.3,14.7 14,25.1 14,35.6 0,16.7 -9.3,37.7 -28,56.5 -18.7,18.8 -42,31.4 -51.3,35.6" fill="#7B5AA6" />
       </svg>
-      Psi Phi
+      <span>Psi Phi</span>
     </a>
     <div class="nav-links">
       <div class="dropdown">
-        <button class="dropdown-toggle">Company</button>
+        <a href="#" class="dropdown-toggle">Company</a>
         <div class="dropdown-menu">
           <a href="index.html#about">About</a>
           <a href="index.html#contact">Contact</a>
         </div>
       </div>
       <div class="dropdown">
-        <button class="dropdown-toggle">Services</button>
-        <div class="dropdown-menu">
-          <a href="services.html#digital-transformation">Digital Transformation</a>
-          <a href="services.html#revenue-intelligence">Revenue Intelligence</a>
-          <a href="services.html#supply-chain">Supply Chain</a>
-          <a href="services.html#process-efficiency">Process Efficiency</a>
-          <a href="services.html#digital-marketing">Digital Marketing</a>
+        <a href="#" class="dropdown-toggle">Services</a>
+        <div class="dropdown-menu align-right">
+          <a href="#digital-transformation">Digital Transformation & Systems</a>
+          <a href="#revenue-intelligence">Revenue Intelligence & Sales</a>
+          <a href="#supply-chain">Supply Chain & Cost</a>
+          <a href="#process-efficiency">Process Efficiency & Yield</a>
+          <a href="#digital-marketing">Digital Marketing & Brand</a>
         </div>
       </div>
     </div>
-    <button class="mobile-menu-btn" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </nav>
 
   <!-- Page Header -->
   <header class="page-header">
     <h1>How I Help</h1>
-    <p>Practical solutions for businesses struggling with disconnected systems, manual processes, and operational
-      inefficiencies.</p>
+    <p class="subtitle">Practical solutions for businesses struggling with disconnected systems, manual processes, and operational inefficiencies.</p>
+    <div class="disclaimer">
+      <strong>Every business is different.</strong> The offerings below represent my approach, but everything is customizable to fit your specific situation, goals, and budget. Think of these as frameworks for us to build on or modify, not rigid packages.
+    </div>
   </header>
 
-  <!-- Service 1: Digital Transformation -->
-  <section id="digital-transformation" class="service-section">
-    <div class="service-content">
-      <div class="section-divider"></div>
-      <h2>Digital Transformation & Systems Architecture</h2>
-      <p class="service-tagline">Connecting your tools, automating your workflows, and getting your team to actually use
-        them.</p>
+  <!-- Service 1: Digital Transformation & Systems Architecture -->
+  <section class="service-section" id="digital-transformation">
+    <div class="section-label">Digital Transformation & Systems Architecture</div>
+    <h2>Stack InPsight</h2>
+    <p class="signature-name">Signature Offering</p>
 
-      <h3>The Problem</h3>
-      <p>Your business runs on a patchwork of disconnected tools. Data lives in silos, manual processes eat up hours every
-        week, and your team has given up on that CRM you spent months implementing. You know there's a better way—you just
-        need someone who can see the whole picture and make it work.</p>
+    <h3>The Problem</h3>
+    <p>Your business runs on a patchwork of tools that don't talk to each other. You're paying for software nobody uses, copying data between systems manually, and spending more time managing your tools than doing actual work.</p>
 
-      <h3>What We Do</h3>
-      <ul>
-        <li>Audit your current tech stack and identify integration opportunities</li>
-        <li>Connect systems so data flows automatically between tools</li>
-        <li>Build custom automations that eliminate repetitive work</li>
-        <li>Train your team and ensure actual adoption</li>
-      </ul>
+    <h3>What I Do</h3>
+    <p>I cut through the chaos. I audit your current tech stack, identify what's redundant, what's missing, and what's not being used properly—then build a roadmap to simplify and integrate everything so your systems actually work for you.</p>
 
-      <h3>Ideal For</h3>
-      <p>Companies outgrowing spreadsheets, teams with underutilized CRMs, and businesses drowning in manual processes.</p>
+    <h3>Ideal For</h3>
+    <ul>
+      <li>Businesses drowning in disconnected tools</li>
+      <li>Teams paying for software they don't fully use</li>
+      <li>Owners tired of manual workarounds and data entry</li>
+    </ul>
 
-      <div class="service-cta">
-        <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-outline">Discuss Your Systems →</a>
+    <div class="engagement-structure">
+      <h4>How We Work Together</h4>
+      
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">1</span>
+          <span class="phase-title">Assessment</span>
+        </div>
+        <p class="phase-desc">Full tech stack audit, tool-by-tool evaluation against your goals, gap and overlap analysis, prioritized roadmap with recommendations.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">2</span>
+          <span class="phase-title">Implementation</span>
+        </div>
+        <p class="phase-desc">Choose your path based on your priorities:</p>
+        <div class="paths-container">
+          <div class="path-card streamlined">
+            <div class="path-name">Streamlined</div>
+            
+            <p class="path-desc">I hand you the roadmap, you execute. I answer questions along the way.</p>
+          </div>
+          <div class="path-card power">
+            <div class="path-name">Power</div>
+            
+            <p class="path-desc">We build it together. I configure, you learn, we collaborate on decisions.</p>
+          </div>
+          <div class="path-card premium">
+            <div class="path-name">Premium</div>
+            
+            <p class="path-desc">I do it for you. Full buildout, migration, configuration—you stay focused on your business.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">3</span>
+          <span class="phase-title">Ongoing Support</span>
+        </div>
+        <p class="phase-desc">Quarterly reviews, system optimization, troubleshooting, and strategic guidance as your business evolves.</p>
       </div>
     </div>
   </section>
 
-  <!-- Service 2: Revenue Intelligence -->
-  <section id="revenue-intelligence" class="service-section">
+  <!-- Service 2: Revenue Intelligence & Sales Enablement -->
+  <section class="service-section alt-bg" id="revenue-intelligence">
     <div class="service-content">
-      <div class="section-divider"></div>
-      <h2>Revenue Intelligence & Sales Enablement</h2>
-      <p class="service-tagline">Smarter pricing, faster matching, and scalable outreach that drives pipeline.</p>
+      <div class="section-label">Revenue Intelligence & Sales Enablement</div>
+      <h2>PersoniPhication</h2>
+      <p class="signature-name">Signature Offering</p>
 
       <h3>The Problem</h3>
-      <p>Your sales team is working hard but not smart. Pricing decisions are based on gut feel, your CRM is more
-        graveyard than goldmine, and you're missing opportunities because you can't quickly match buyers to inventory.
-        Revenue is there—you're just leaving it on the table.</p>
+      <p>Your CRM is a dumping ground instead of a sales engine. Leads fall through the cracks, follow-ups are inconsistent, and you can't scale your sales efforts without losing the personal touch that wins deals.</p>
 
-      <h3>What We Do</h3>
-      <ul>
-        <li>Optimize or implement your CRM so it actually drives sales</li>
-        <li>Build buyer matching and tagging systems for faster response</li>
-        <li>Create pricing analysis frameworks backed by data</li>
-        <li>Develop sales automations and templates that scale</li>
-      </ul>
+      <h3>What I Do</h3>
+      <p>I build a sales system that sounds like you, thinks like you, and works the way you do. From CRM configuration to pipeline design to AI-assisted communication that matches your voice—I help you scale without losing what makes you you.</p>
 
       <h3>Ideal For</h3>
-      <p>Sales teams with stale or messy CRMs, companies with complex pricing decisions, and businesses scaling their
-        sales function.</p>
+      <ul>
+        <li>Solopreneurs who can't respond to every lead personally</li>
+        <li>Small teams with underutilized CRMs</li>
+        <li>Businesses that want to scale sales without sounding robotic</li>
+      </ul>
 
-      <div class="service-cta">
-        <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-outline">Discuss Your Sales
-          Process →</a>
+      <div class="engagement-structure">
+        <h4>How We Work Together</h4>
+        
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">1</span>
+            <span class="phase-title">Assessment</span>
+          </div>
+          <p class="phase-desc">Sales process audit, CRM evaluation, communication style analysis, pipeline review, and opportunity identification.</p>
+        </div>
+
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">2</span>
+            <span class="phase-title">Implementation</span>
+          </div>
+          <p class="phase-desc">Choose your path based on your priorities:</p>
+          <div class="paths-container">
+            <div class="path-card streamlined">
+              <div class="path-name">Streamlined</div>
+              
+              <p class="path-desc">Voice style guide, email templates, basic CRM cleanup, documented pipeline stages.</p>
+            </div>
+            <div class="path-card power">
+              <div class="path-name">Power</div>
+              
+              <p class="path-desc">Full CRM configuration, custom pipeline, lead scoring, AI voice matching, integrations.</p>
+            </div>
+            <div class="path-card premium">
+              <div class="path-name">Premium</div>
+              
+              <p class="path-desc">Everything done-for-you, team training, documentation, refinement rounds, post-launch tuning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">3</span>
+            <span class="phase-title">Ongoing Support</span>
+          </div>
+          <p class="phase-desc">Voice refinement, CRM optimization, pipeline tuning, and monthly strategy calls as your sales process evolves.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Service 3: Supply Chain -->
-  <section id="supply-chain" class="service-section">
-    <div class="service-content">
-      <div class="section-divider"></div>
-      <h2>Supply Chain & Cost Optimization</h2>
-      <p class="service-tagline">Visibility into what's moving, where it's going, and what it's costing you.</p>
+  <!-- Service 3: Supply Chain & Cost Optimization -->
+  <section class="service-section" id="supply-chain">
+    <div class="section-label">Supply Chain & Cost Optimization</div>
+    <h2>RePhinance</h2>
+    <p class="signature-name">Signature Offering</p>
 
-      <h3>The Problem</h3>
-      <p>Freight costs are a black box. Samples disappear into the void. You're paying premium rates because carrier
-        relationships are scattered across sticky notes and old emails. Every shipment feels like a gamble, and you
-        suspect you're bleeding money—you just can't prove it.</p>
+    <h3>The Problem</h3>
+    <p>You know you're overpaying somewhere—maybe everywhere—but you don't have time to dig into vendor contracts, audit subscriptions, or negotiate better deals. Money leaks out while you're busy running the business.</p>
 
-      <h3>What We Do</h3>
-      <ul>
-        <li>Audit freight spend and carrier relationships</li>
-        <li>Build tracking systems for samples and inventory</li>
-        <li>Organize carriers and optimize rates</li>
-        <li>Create cost allocation and visibility tools</li>
-      </ul>
+    <h3>What I Do</h3>
+    <p>I map where your money actually goes, find the leaks, and give you a clear plan to stop the bleeding. Whether it's consolidating vendors, renegotiating contracts, or cutting redundant services—I help you keep more of what you earn.</p>
 
-      <h3>Ideal For</h3>
-      <p>Companies with high freight spend, businesses shipping samples regularly, and teams with scattered carrier
-        relationships.</p>
+    <h3>Ideal For</h3>
+    <ul>
+      <li>Businesses that have grown fast without optimizing costs</li>
+      <li>Owners who suspect they're overpaying but can't pinpoint where</li>
+      <li>Companies with vendor sprawl and subscription bloat</li>
+    </ul>
 
-      <div class="service-cta">
-        <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-outline">Discuss Your Supply
-          Chain →</a>
+    <div class="engagement-structure">
+      <h4>How We Work Together</h4>
+      
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">1</span>
+          <span class="phase-title">Assessment</span>
+        </div>
+        <p class="phase-desc">Comprehensive spend mapping, vendor analysis, contract review, redundancy identification, and savings opportunity prioritization.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">2</span>
+          <span class="phase-title">Implementation</span>
+        </div>
+        <p class="phase-desc">Choose your path based on your priorities:</p>
+        <div class="paths-container">
+          <div class="path-card streamlined">
+            <div class="path-name">Streamlined</div>
+            
+            <p class="path-desc">Detailed spend report, quick-win list, renegotiation talking points—you execute.</p>
+          </div>
+          <div class="path-card power">
+            <div class="path-name">Power</div>
+            
+            <p class="path-desc">Vendor consolidation strategy, renegotiation playbooks, tracking dashboard setup.</p>
+          </div>
+          <div class="path-card premium">
+            <div class="path-name">Premium</div>
+            
+            <p class="path-desc">I support you through renegotiations, implement tracking systems, deliver 90-day follow-up review.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">3</span>
+          <span class="phase-title">Ongoing Support</span>
+        </div>
+        <p class="phase-desc">Continuous spend monitoring, new vendor evaluation, contract renewal support, and quarterly cost reviews.</p>
       </div>
     </div>
   </section>
 
-  <!-- Service 4: Process Efficiency -->
-  <section id="process-efficiency" class="service-section">
+  <!-- Service 4: Process Efficiency & Yield Optimization -->
+  <section class="service-section alt-bg" id="process-efficiency">
     <div class="service-content">
-      <div class="section-divider"></div>
-      <h2>Process Efficiency & Yield Optimization</h2>
-      <p class="service-tagline">Maximizing output from your inputs—reducing waste, improving yields, and finding value
-        before it leaves your facility.</p>
+      <div class="section-label">Process Efficiency & Yield Optimization</div>
+      <h2>EPhiciency</h2>
+      <p class="signature-name">Signature Offering</p>
 
       <h3>The Problem</h3>
-      <p>You're watching value walk out the door. Waste streams that could be revenue sit in dumpsters. Yields are
-        inconsistent, and nobody can tell you exactly why. You know there's hidden profit in your operations—you just
-        need someone to help you find it and capture it.</p>
+      <p>Your operations have grown organically into a patchwork of "how we've always done it." Whether it's your production floor, warehouse, packaging line, or back-office workflows—nobody's sure why certain steps exist, where the bottlenecks are, or how much inefficiency is costing you.</p>
 
-      <h3>What We Do</h3>
-      <ul>
-        <li>Review production processes to identify waste and yield loss</li>
-        <li>Redesign processes for efficiency</li>
-        <li>Develop internal reuse pathways to capture value</li>
-        <li>Build tracking and measurement systems for accountability</li>
-      </ul>
+      <h3>What I Do</h3>
+      <p>I map how work actually flows through your operation—manufacturing, warehousing, fulfillment, and administrative processes alike. I identify bottlenecks, redundancies, and wasted effort, then give you a prioritized plan to streamline operations and get more output from what you already have.</p>
 
       <h3>Ideal For</h3>
-      <p>Manufacturing and processing operations, companies with significant waste streams, and facilities with
-        inconsistent yields.</p>
+      <ul>
+        <li>Manufacturing or production operations that have never been formally optimized</li>
+        <li>Warehouses and fulfillment centers with inconsistent throughput</li>
+        <li>Businesses where processes have grown organically without documentation</li>
+        <li>Owners who know something is broken but can't pinpoint it</li>
+      </ul>
 
-      <div class="service-cta">
-        <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-outline">Discuss Your
-          Operations →</a>
+      <div class="engagement-structure">
+        <h4>How We Work Together</h4>
+        
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">1</span>
+            <span class="phase-title">Assessment</span>
+          </div>
+          <p class="phase-desc">Process mapping, bottleneck analysis, yield measurement, waste identification, and improvement prioritization.</p>
+        </div>
+
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">2</span>
+            <span class="phase-title">Implementation</span>
+          </div>
+          <p class="phase-desc">Choose your path based on your priorities:</p>
+          <div class="paths-container">
+            <div class="path-card streamlined">
+              <div class="path-name">Streamlined</div>
+              
+              <p class="path-desc">Deep dive on 1-2 core processes, documented current state, bottleneck report, quick-win recommendations.</p>
+            </div>
+            <div class="path-card power">
+              <div class="path-name">Power</div>
+              
+              <p class="path-desc">Full operational mapping, improvement roadmap, baseline metrics, you own execution.</p>
+            </div>
+            <div class="path-card premium">
+              <div class="path-name">Premium</div>
+              
+              <p class="path-desc">Implementation support, team training on new workflows, 60-day results review and adjustment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-header">
+            <span class="phase-number">3</span>
+            <span class="phase-title">Ongoing Support</span>
+          </div>
+          <p class="phase-desc">Continuous improvement cycles, new process optimization, performance monitoring, and quarterly operational reviews.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Service 5: Digital Marketing -->
-  <section id="digital-marketing" class="service-section">
-    <div class="service-content">
-      <div class="section-divider"></div>
-      <h2>Digital Marketing & Brand Visibility</h2>
-      <p class="service-tagline">Getting your company found by the right people at the right time.</p>
+  <!-- Service 5: Digital Marketing & Brand Visibility -->
+  <section class="service-section" id="digital-marketing">
+    <div class="section-label">Digital Marketing & Brand Visibility</div>
+    <h2>Psignature</h2>
+    <p class="signature-name">Signature Offering</p>
 
-      <h3>The Problem</h3>
-      <p>Your website is a digital ghost town. Google doesn't know you exist, your competitors dominate search results,
-        and potential customers can't find you even when they're looking. You've invested in operations—now it's time to
-        make sure the world can find you.</p>
+    <h3>The Problem</h3>
+    <p>Your marketing is scattered—a little social media here, some email blasts there, a website that hasn't been updated in years. You're not sure where your audience actually is, whether your messaging is consistent, or if any of it is working.</p>
 
-      <h3>What We Do</h3>
-      <ul>
-        <li>Audit your website SEO and digital presence</li>
-        <li>Fix technical SEO issues and optimize content</li>
-        <li>Set up and optimize Google Business Profile</li>
-        <li>Develop content strategy and ongoing improvements</li>
-      </ul>
+    <h3>What I Do</h3>
+    <p>I audit how your brand shows up across every channel, identify where your audience actually spends time, and build a focused strategy so you stop wasting effort on what doesn't work and double down on what does.</p>
 
-      <h3>Ideal For</h3>
-      <p>B2B companies invisible online, businesses with outdated websites, and organizations entering new markets.</p>
+    <h3>Ideal For</h3>
+    <ul>
+      <li>Businesses with inconsistent brand presence across channels</li>
+      <li>Owners unsure where to focus limited marketing time and budget</li>
+      <li>Companies that have outgrown their DIY marketing approach</li>
+    </ul>
 
-      <div class="service-cta">
-        <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-outline">Discuss Your Digital
-          Presence →</a>
+    <div class="engagement-structure">
+      <h4>How We Work Together</h4>
+      
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">1</span>
+          <span class="phase-title">Assessment</span>
+        </div>
+        <p class="phase-desc">Brand presence audit, channel analysis, messaging consistency review, competitor landscape, and opportunity identification.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">2</span>
+          <span class="phase-title">Implementation</span>
+        </div>
+        <p class="phase-desc">Choose your path based on your priorities:</p>
+        <div class="paths-container">
+          <div class="path-card streamlined">
+            <div class="path-name">Streamlined</div>
+            
+            <p class="path-desc">Brand audit report, messaging quick wins, channel recommendations—you execute.</p>
+          </div>
+          <div class="path-card power">
+            <div class="path-name">Power</div>
+            
+            <p class="path-desc">Full brand audit, channel strategy, messaging framework, content calendar, analytics setup.</p>
+          </div>
+          <div class="path-card premium">
+            <div class="path-name">Premium</div>
+            
+            <p class="path-desc">Everything plus content templates, implementation assistance, 60-day optimization review.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <span class="phase-number">3</span>
+          <span class="phase-title">Ongoing Support</span>
+        </div>
+        <p class="phase-desc">Content strategy refinement, channel optimization, performance tracking, and monthly marketing reviews.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="cta">
-    <div class="cta-divider"></div>
     <h2>Not sure where to start?</h2>
     <p>Book a free discovery call. We'll talk through what's working, what's not, and whether there's a fit.</p>
-    <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-primary">Schedule a Discovery
-      Call</a>
-    <p class="cta-alt">Or email sean@psiphi.co</p>
+    <a href="https://psiphillc.zohobookings.com/#/4750736000000048054" class="btn btn-primary">Schedule a Discovery Call</a>
+    <p class="cta-alt">or fill out the form below</p>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form">
+    <div class="form-container">
+      <iframe aria-label='Contact Me' frameborder="0" style="height:700px;width:100%;border:none;" src='https://forms.zohopublic.com/psiphillc1/form/ContactMe/formperma/IRY09i8AKTOAjeE-7t03b2nUYunHZ020UjpNkQjSFzk'></iframe>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -661,40 +873,6 @@
       <a href="https://www.linkedin.com/company/psiphi/">LinkedIn</a>
     </p>
   </footer>
-
-  <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Mobile dropdown toggles
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        // Only handle click for mobile
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const dropdown = toggle.closest('.dropdown');
-          dropdown.classList.toggle('active');
-        }
-      });
-    });
-
-    // Close menu when clicking a link
-    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-        }
-      });
-    });
-  </script>
 
 </body>
 
