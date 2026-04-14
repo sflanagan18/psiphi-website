@@ -1,0 +1,23 @@
+title: Psi Phi LLC
+description: Operational consulting for mid-market companies — finding the optimal balance between systems, processes, and people.
+url: https://psiphi.co
+
+# Build settings
+markdown: kramdown
+
+# Files to exclude from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+# Site-wide variables you can reference in templates as {{ site.contact.email }}
+contact:
+  email: sean@psiphi.co
+  phone: "(412) 722-9228"
+  address: "Summerville, SC"
+  linkedin: https://www.linkedin.com/company/psiphi/
+  client_portal: https://books.zohosecure.com/portal/psiphi
+  bookings: https://psiphillc.zohobookings.com/#/4750736000000048054
+  contact_form: https://forms.zohopublic.com/psiphillc1/form/ContactMe/formperma/IRY09i8AKTOAjeE-7t03b2nUYunHZ020UjpNkQjSFzk

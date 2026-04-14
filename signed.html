@@ -1,270 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document Signed — Psi Phi LLC</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --purple: #7B5AA6;
-      --green: #2D8659;
-      --ink: #1a1a1a;
-      --muted: #6b6b6b;
-      --rule: #e4e0eb;
-      --bg: #faf9fb;
-    }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      padding-top: 6rem;
-    }
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 62px;
-      background: #fff;
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--purple);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; }
-    .nav-links li { position: relative; }
-    .nav-links > li > a,
-    .nav-links > li > span {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--ink);
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
-      user-select: none;
-    }
-    .nav-links > li > a:hover,
-    .nav-links > li > span:hover { background: #f4f1f9; color: var(--purple); }
-    .nav-links > li > span::after { content: '▾'; font-size: 0.65rem; opacity: 0.45; margin-left: 1px; }
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 0;
-      background: #fff;
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      min-width: 210px;
-      padding: 0.35rem 0;
-    }
-    .nav-links li:hover .dropdown { display: block; }
-    .dropdown a {
-      display: block;
-      padding: 0.5rem 1.1rem;
-      font-size: 0.84rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: background 0.12s, color 0.12s;
-    }
-    .dropdown a:hover { background: #f4f1f9; color: var(--purple); }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 10%, rgba(123,90,166,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 90%, rgba(45,134,89,0.05) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .card {
-      position: relative;
-      z-index: 1;
-      background: #fff;
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      max-width: 540px;
-      width: 100%;
-      padding: 3.5rem 3rem;
-      text-align: center;
-      box-shadow: 0 2px 40px rgba(123,90,166,0.07), 0 1px 4px rgba(0,0,0,0.04);
-      animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--purple), var(--green));
-      border-radius: 2px 2px 0 0;
-    }
-    .checkmark {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: rgba(45,134,89,0.1);
-      border: 1.5px solid rgba(45,134,89,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 2rem;
-      animation: pop 0.5s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    }
-    @keyframes pop {
-      from { opacity: 0; transform: scale(0.6); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .checkmark svg {
-      width: 24px; height: 24px;
-      stroke: var(--green);
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-      stroke-dasharray: 40;
-      stroke-dashoffset: 40;
-      animation: draw 0.4s 0.6s ease forwards;
-    }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    .wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fade 0.5s 0.2s ease forwards;
-    }
-    @keyframes fade { to { opacity: 1; } }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-    .subtitle {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 2rem;
-    }
-    hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
-    .next-steps { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-    .next-steps strong {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-    .contact { margin-top: 2rem; font-size: 0.8rem; color: var(--muted); }
-    .contact a {
-      color: var(--purple);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(123,90,166,0.25);
-      transition: border-color 0.2s;
-    }
-    .contact a:hover { border-color: var(--purple); }
-    .redirect-notice { margin-top: 1.75rem; font-size: 0.78rem; color: #b0a8bc; }
-    .redirect-notice a { color: var(--purple); text-decoration: none; border-bottom: 1px solid rgba(123,90,166,0.25); }
-  </style>
-</head>
-<body>
+---
+layout: default
+title: Document Signed
+description: Thank you for signing.
+---
 
-  <nav>
-    <a href="https://psiphi.co" class="nav-logo">Psi Phi</a>
-    <ul class="nav-links">
-      <li>
-        <span>Company</span>
-        <div class="dropdown">
-          <a href="https://psiphi.co/index.html#sound-familiar">Sound Familiar?</a>
-          <a href="https://psiphi.co/index.html#how-i-help">How I Can Help</a>
-          <a href="https://psiphi.co/index.html#about">About</a>
-          <a href="https://psiphi.co/index.html#contact">Contact</a>
-        </div>
-      </li>
-      <li>
-        <span>Services</span>
-        <div class="dropdown">
-          <a href="https://psiphi.co/services.html#digital-transformation">Digital Transformation</a>
-          <a href="https://psiphi.co/services.html#revenue-intelligence">Revenue Intelligence</a>
-          <a href="https://psiphi.co/services.html#supply-chain">Supply Chain &amp; Cost</a>
-          <a href="https://psiphi.co/services.html#process-efficiency">Process Efficiency</a>
-          <a href="https://psiphi.co/services.html#digital-marketing">Digital Marketing</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="card">
-    <div class="wordmark">Psi Phi LLC</div>
-    <div class="checkmark">
-      <svg viewBox="0 0 24 24"><polyline points="4 12 9 17 20 6"/></svg>
+<section class="signed-page">
+  <div class="signed-card">
+    <div class="signed-checkmark">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 9 17 20 6"/></svg>
     </div>
     <h1>Document signed.<br>Thank you.</h1>
     <p class="subtitle">
       A fully executed copy will arrive in your inbox shortly.<br>
-      Keep it somewhere handy — it's your record of our agreement.
+      Keep it somewhere handy &mdash; it's your record of our agreement.
     </p>
-    <hr />
+    <hr>
     <p class="next-steps">
       <strong>What happens next</strong>
       I'll reach out within one business day to confirm next steps and get things moving. If you have any immediate questions, don't hesitate to get in touch.
     </p>
-    <p class="contact">
-      <a href="mailto:sean@psiphi.co">sean@psiphi.co</a>&ensp;&middot;&ensp;(412) 722-9228
+    <p class="signed-contact">
+      <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>&ensp;&middot;&ensp;{{ site.contact.phone }}
     </p>
     <p class="redirect-notice">
-      Redirecting to <a href="https://psiphi.co">psiphi.co</a> in <span id="countdown">10</span> seconds&hellip;
+      Redirecting to <a href="{{ site.url }}">psiphi.co</a> in <span id="countdown">10</span> seconds&hellip;
     </p>
   </div>
+</section>
 
-  <script>
-    let t = 10;
-    const el = document.getElementById('countdown');
-    const interval = setInterval(() => {
-      t--;
-      el.textContent = t;
-      if (t <= 0) {
-        clearInterval(interval);
-        window.location.href = 'https://psiphi.co';
-      }
-    }, 1000);
-  </script>
-
-</body>
-</html>
+<script>
+  let t = 10;
+  const el = document.getElementById('countdown');
+  const interval = setInterval(() => {
+    t--;
+    if (el) el.textContent = t;
+    if (t <= 0) {
+      clearInterval(interval);
+      window.location.href = '{{ site.url }}';
+    }
+  }, 1000);
+</script>
